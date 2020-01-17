@@ -93,8 +93,7 @@ $(OUTBIN): .go/$(OUTBIN).stamp
 .PHONY: .go/$(OUTBIN).stamp
 .go/$(OUTBIN).stamp: $(BUILD_DIRS)
 	@echo "making $(OUTBIN)"
-	@docker run                                                                  \
-	    -ti                                                                      \
+	@docker run                                                                  \                                                                      \
 	    --rm                                                                     \
 	    -u $$(id -u):$$(id -g)                                                   \
 	    -v $$(pwd):/src                                                          \
@@ -162,7 +161,6 @@ version:
 
 test: $(BUILD_DIRS)
 	@docker run                                                                  \
-	    -ti                                                                      \
 	    -u $$(id -u):$$(id -g)                                                   \
 	    -v $$(pwd):/src                                                          \
 	    -w /src                                                                  \
